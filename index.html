@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20-20-20 Screen time rule tracker for developers.</title>
+</head>
+
+<body class="text-gray-700 flex h-[100vh] items-center">
+    <div class="mx-auto px-8 py-6 text-center rounded-xl w-96 shadow-[10px_0_2rem_#b3b3b3]">
+        <h1 class="text-center font-bold text-3xl uppercase">20-20-20 Tracker</h1>
+
+        <div class="border-b border-gray-400 py-4">
+            <h3 class="font-bold text-2xl mb-1 text-green-600">Total working time</h3>
+            <div id="working-time" class="flex justify-center tracking-wider text-3xl gap-1">
+                <span>00</span> : <span>00</span> : <span>00</span>
+            </div>
+        </div>
+
+        <div class="border-b border-gray-400 py-4">
+            <h3 class="font-bold text-2xl mb-1 text-red-600">Time for next break</h3>
+            <div id="next-break" class="flex justify-center tracking-wider text-3xl gap-1">
+                <span>20</span> : <span>00</span>
+            </div>
+        </div>
+
+        <div class="py-4">
+            <h3 class="font-bold text-2xl mb-1 text-gray-600">Waiting time</h3>
+            <div id="waiting" class="flex justify-center tracking-wider text-3xl gap-1">
+                <span>20</span>
+            </div>
+        </div>
+
+        <div class="flex gap-2 justify-center pb-2 pt-1">
+            <button id="start"
+                class="bg-green-500 text-white font-bold py-1 px-5 hover:bg-green-600 rounded">Start</button>
+            <button id="stop" class="bg-red-500 text-white font-bold py-1 px-5 hover:bg-red-600 rounded">Stop</button>
+        </div>
+    </div>
+
+    <audio id="beep-sound" preload="auto">
+        <source src="beep.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
