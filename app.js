@@ -40,10 +40,13 @@ let waitingSecs = 20;
 let playCount = 0;
 
 const getNextBreak = () => {
-    if (remainMins === 0 && remainSecs === 0) {
+    if (remainMins === 0 && remainSecs === 2) {
         if (playCount < 1) {
             playCount++;
         }
+    }
+
+    if (remainMins === 0 && remainSecs === 0) {
         return true;
     }
 
@@ -65,7 +68,9 @@ const getNextBreak = () => {
 // ----------------------------------------------------------------
 
 const startWaiting = (isWait) => {
+    const items = document.querySelectorAll("#waiting span");
     if (!isWait) {
+        items[0].innerHTML = waitingSecs < 10 ? "0" + waitingSecs : waitingSecs;
         return;
     }
 
@@ -73,8 +78,6 @@ const startWaiting = (isWait) => {
         playCount++;
         audio.play();
     }
-
-    const items = document.querySelectorAll("#waiting span");
 
     waitingSecs -= 1;
 
@@ -87,13 +90,13 @@ setInterval(() => {
     if (!isStart) {
         return;
     }
-    
+
     startWorkingTime();
 
     if (waitingSecs === 0) {
         waitingSecs = 20;
         remainSecs = 60;
-        remainMins = 20;
+        remainMins = 19;
         audio.play();
         playCount--;
     }
