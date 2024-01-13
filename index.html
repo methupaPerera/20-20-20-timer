@@ -5,46 +5,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>20-20-20 Screen time rule tracker for developers.</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="text-gray-700 flex h-[100vh] items-center">
-    <div class="mx-auto px-12 py-6 text-center rounded-xl shadow-[10px_0_2rem_#b3b3b3]">
+<body class="h-[100vh] flex items-center text-gray-700">
+
+    <!-- Main Container -->
+    <div class="w-11/12 sm:w-3/4 md:w-1/2 mx-auto pt-6 pb-8 flex flex-col gap-8 text-center shadow-[10px_0_2rem_#b3b3b3] rounded-xl">
+        
+        <!-- Heading -->
         <h1 class="text-center font-bold text-3xl uppercase">20-20-20 Tracker</h1>
 
-        <div class="border-b border-gray-400 py-4">
-            <h3 class="font-bold text-2xl mb-1 text-green-600">Total working time</h3>
-            <div id="working-time" class="flex justify-center tracking-wider text-3xl gap-1">
-                <span>00</span> : <span>00</span> : <span>00</span>
+        <!-- Main area -->
+        <div class="px-10 flex flex-col gap-5">
+            <div>
+                <h3 class="mb-1 font-bold text-2xl text-green-600">Total working time</h3>
+                <div id="working-time" class="flex justify-center tracking-wider text-3xl gap-1">
+                    <span>00</span> : <span>00</span> : <span>00</span>
+                </div>
+            </div>
+
+            <div class="py-5 border-y border-gray-400">
+                <h3 class="mb-1 font-bold text-2xl text-red-600">Time for next break</h3>
+                <div id="next-break" class="flex justify-center tracking-wider text-3xl gap-1">
+                    <span>20</span> : <span>00</span>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="mb-1 font-bold text-2xl text-gray-600">Waiting time</h3>
+                <div id="waiting" class="tracking-wider text-3xl">
+                    <span>20</span>
+                </div>
             </div>
         </div>
 
-        <div class="border-b border-gray-400 py-4">
-            <h3 class="font-bold text-2xl mb-1 text-red-600">Time for next break</h3>
-            <div id="next-break" class="flex justify-center tracking-wider text-3xl gap-1">
-                <span>20</span> : <span>00</span>
-            </div>
+        <!-- Buttons -->
+        <div class="flex gap-2 justify-center">
+            <button id="start" class="bg-green-500 text-white font-bold py-2 px-8 hover:bg-green-600 rounded">Start</button>
+            <button id="stop" class="bg-red-500 text-white font-bold py-2 px-8 hover:bg-red-600 rounded">Stop</button>
         </div>
 
-        <div class="py-4">
-            <h3 class="font-bold text-2xl mb-1 text-gray-600">Waiting time</h3>
-            <div id="waiting" class="flex justify-center tracking-wider text-3xl gap-1">
-                <span>20</span>
-            </div>
-        </div>
-
-        <div class="flex gap-2 justify-center pb-2 pt-1">
-            <button id="start"
-                class="bg-green-500 text-white font-bold py-1 px-5 hover:bg-green-600 rounded">Start</button>
-            <button id="stop" class="bg-red-500 text-white font-bold py-1 px-5 hover:bg-red-600 rounded">Stop</button>
-        </div>
     </div>
 
+    <!-- Beep sound -->
     <audio id="beep-sound" preload="auto">
-        <source src="beep.mp3" type="audio/mp3">
+        <source src="assets/beep.mp3" type="audio/mp3">
     </audio>
 
-    <script src="app.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
